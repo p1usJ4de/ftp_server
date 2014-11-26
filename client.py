@@ -63,7 +63,7 @@ class Client:
 		if self.ftp == None:
 			return False
 		try:
-			self.ftp.cwd(pahtname)
+			self.ftp.cwd(pathname)
 		except  ftplib.error_perm:
 			print 'ERROR:can not change directory.'
 
@@ -134,8 +134,7 @@ class ClientView:
 9.delete filename -- delete a ftp file
 10.cd pathname -- change your working directory
 11.pwd -- print current working directory
-12.size filename -- return the size of a file in the ftp server
-'''
+12.size filename -- return the size of a file in the ftp server'''
 	exit_message = 'Thank you for using.'
 	prompt = '>'
 
@@ -154,7 +153,6 @@ class ClientView:
 		arguments = ','.join(['\''+ x +'\'' for x in cmd_list[1:]]) if len(cmd_list) > 1 else ''
 		# add function header and join the arguments
 		cmd_str = 'self.process_'+cmd_list[0]+'('+arguments+')'
-		print cmd_str
 		return cmd_str
 
 	'''
